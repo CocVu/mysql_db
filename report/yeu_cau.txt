@@ -1,0 +1,52 @@
+Project 2: Database implementation
+Continue from the previous project, in this project, each student group is responsible for
+creating appropriate components for a database system that is in one of the following
+categories
+ A shopping database
+ An online newspaper database
+ A social network database
+ An e-learning database
+Goals of the study
+ To practice database implementation using SQL language
+ To practice database quality improvement using normalization process
+ To practice database performance tuning using indexing structure
+ To practice basic database security management
+ To develop team work skill
+Group information
+ You can keep your old group or create a new one
+ If you create your new group, send the information to me before 24/11
+Requirements
+ You are NOT REQUIRED to follow the result of your Project 1
+ Create at least 20 tables, each contains at least 20 sample records. DO NOT use a,
+b, c, x, y, z, etc. for sample data. Instead, use human-friendly sample data!
+ Each table must contain: primary key, foreign key (if there is), index structure,
+business rule with CHECK or TRIGGER (if there is)
+ Each table must be normalized to at least 3rd normal form
+Deliverables
+ One report (PDF and hard-copy) containing
+o Overall description of the database
+o Description about tables, constraints, trigges, index, etc. and SQL
+commands to create them
+
+o Description and SQL commands to retrieve data with screenshot of the
+returned result if possible (Note: each command is completed on itself, i.e.
+no temporary result can be used)
+ 3 commands having INNER JOIN
+ 3 commands having OUTER JOIN
+ 3 commands having subquery
+ 3 commands having aggregate functions and grouping
+ 3 commands demonstrating CHECK constraint
+ 3 commands demonstrating TRIGGER feature
+ 3 commands having performance gain from indexing structure
+o Analyze your system in term of user roles, then create at least 3 users with
+3 different security level
+ Write necessary SQL commands to create users
+ Write necessary SQL commands to GRANT/REVOKE users
+permissions
+ Write some SQL commands to test if your permission is assigned
+correctly
+
+ Presentation
+o At the 10th week of the lab
+o Each group presents its result in about 20-30 minutes
+ Each member needs to answer questions from the teacher individually

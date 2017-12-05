@@ -1,0 +1,11 @@
+select count(*) from nhan_vien;
+select count(*) from nhan_vien group by Dnum;
+select ssn from nhan_vien where luong > 1500;
+
+SELECT SSN,Dnum
+FROM nhan_vien
+WHERE luong > 1800
+INTO OUTFILE '/var/lib/mysql/orders.csv'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';

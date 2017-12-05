@@ -1,0 +1,24 @@
+drop table phong_ban;
+drop table nhan_vien;
+===============================================================================
+
+CREATE TABLE phong_ban (DNum INT(2) NOT NULL AUTO_INCREMENT, Mng_SSN VARCHAR(5) NOT NULL, Ten VARCHAR(20) NOT NULL, dia_chi VARCHAR(50) NOT NULL, so_nv INT(2) NOT NULL, PRIMARY KEY (Dnum));
+
+LOAD DATA INFILE 'phong_ban.csv' INTO TABLE phong_ban FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
+
+select * from phong_ban;
+describe phong_ban;
+
+
+
+CREATE TABLE nhan_vien (SSN VARCHAR(5) NOT NULL,Dnum INT(2) NOT NULL, ho_ten VARCHAR(20) NOT NULL,DoB DATE,sdt INT,dia_chi VARCHAR(50), gioi_tinh VARCHAR(3),luong INT, PRIMARY KEY(SSN));
+LOAD DATA INFILE 'nhan_vien.csv' INTO TABLE nhan_vien FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
+ALTER IGNORE TABLE nhan_vien ADD UNIQUE (SSN);
+
+select * from nhan_vien;
+describe nhan_vien;
+
+
+===============================================================================
+
+ALTER TABLE phong_ban ADD FOREIGN KEY (`Mng_SSN`) REFERENCES nhan_vien(`SSN`);
