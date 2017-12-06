@@ -1,5 +1,7 @@
 select count(*) from nhan_vien;
 select count(*) from nhan_vien group by Dnum;
+
+select * from nv_cskh ;
 select ssn from nhan_vien where luong > 1500;
 
 SELECT SSN,Dnum
@@ -9,3 +11,29 @@ INTO OUTFILE '/var/lib/mysql/orders.csv'
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n';
+
+LOAD DATA INFILE 'nv_kinh_doanh.csv' INTO TABLE nv_kinh_doanh FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
+
+SELECT File_Name
+FROM Words_DB
+WHERE Word_Name=" . $element . "
+AND File_Name NOT IN (
+  SELECT File_Name 
+  FROM Files_DB 
+  WHERE Display=0
+)
+
+
+SELECT nv.SSN, nv.DNum
+FROM nhan_vien nv
+WHERE (NOT EXISTS (SELECT nv_kinh_doanh.SSN FROM nv_kinh_doanh WHERE nv_kinh_doanh.SSN = nv.SSN) AND nv.luong > 1500);
+INTO OUTFILE '/var/lib/mysql/orders.csv'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
+
+SELECT MAX(luong) AS luong FROM nhan_vien;
+
+SELECT MIN(luong) AS luong FROM nhan_vien;
+

@@ -16,7 +16,7 @@ show tables;
 create table xxx(name varchar(20),id int(2),bname varchar(20));
 describe xxx;
 insert into animals (num,name,location) values(1,'abc','xyz')
-select * from xxx;
+select * from nv_kinh_doanh;
 drop table xxx;
 drop database xxx;
 LOAD DATA INFILE 'data.csv' INTO TABLE xxx FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ; /*IGNORE 1 ROWS*/

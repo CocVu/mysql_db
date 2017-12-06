@@ -1,0 +1,23 @@
+Phòng ban(DNum, Mng_SSN, Tên, Địa chỉ, số nv) PRIMARYKEY Dnum FOREIGNKEY Mng_SSN From Nhân viên
+Nhân viên(SSN, Dnum, Tên, DoB, Số đt, Địa chỉ, giới tính, lương) PRIMARYKEY SSN FOREIGNKEY Dnum From Phòng ban
+NV Kinh doanh(SSN, Dnum, Chức vụ, Danh sách bằng) PRIMARYKEY SSN FOREIGNKEY Dnum From Phòng ban, Danh sách bằng From Danh sách bằng
+Danh sách bằng(SSN, DID, Ngày cấp, Trường/Đơn vị) PRIMARYKEY SSN From Nhân viên , DID
+NV Shipper(SSN, Dnum, Ca làm việc) PRIMARYKEY SSN FOREIGNKEY Dnum From Phòng ban
+NV Chăm sóc KH(SSN, Dnum) PRIMARYKEY SSN FOREIGNKEY Dnum From Phòng ban
+NV Quản lý kho(SSN, Dnum) PRIMARYKEY SSN FOREIGNKEY Dnum From Phòng ban
+Quản lý DN (SSN, MST) PRIMARYKEY SSN From Nhân viên,MST From Doanh nghiệp
+Doanh nghiệp(MST, Email, Tên, Thời gian trên Lazada, Tỉ lệ đánh giá, danh sách hàng hóa) PRIMARYKEY MST FOREIGNKEY danh sách hàng hóa FROM Danh sách hàng hóa
+Danh sách hàng hóa (MST, SKU, Xuất xứ, Số lượng) PRIMARYKEY MST From Doanh nghiệp, SKU From Hàng
+Hàng(SKU, Tên, Mô tả chi tiết, Giá hiện tại, giá trước đây, Bảo hành, Danh sách loại hàng) PRIMARYKEY SKU FOREIGNKEY Danh sách loại hàng FROM Danh sách loại hàng
+Danh sách loại hàng(Loại, SKU) PRIMARYKEY SKU From Hàng, Loại Hàng hết(SKU) PRIMARYKEY SKU From Hàng
+Hàng còn(SKU, Số lượng) PRIMARYKEY SKU From Hàng
+Giỏ hàng(ID, Mã giỏ, Số lượng hàng, tổng tiền, danh sách hàng mua) PRIMARYKEY ID From Khách hàng, Mã giỏ FOREIGNKEY danh sách hàng mua From Danh sách hàng mua
+Danh sách hàng mua(ID, Mã giỏ, Số lượng, SKU) PRIMARYKEY ID From
+Khách hàng, Mã giỏ From Giỏ hàng FOREIGNKEY SKU From Hàng
+Khách hàng(ID, Email, Họ tên, địa chỉ, SĐT) PRIMARYKEY ID
+Khách vãng lai(ID) PRIMARYKEY ID
+Thành viên (ID, DoB, Giới tính) PRIMARYKEY ID
+Mua ngay (Mã đơn, ID, Mã giỏ, ngày mua, ngày trả, tình trạng đơn) PRIMARYKEY Mã đơn FOREIGNKEY ID From Khách hàng, Mã giỏ From Giỏ hàng
+Đặt hàng (mã đặt hàng, ID, SKU, Số lượng, Ngày đặt) PRIMARYKEY Mã đặt hàng FOREIGNKEY ID From Khách hàng, SKU From Hàng
+Coupon(Code, MST, ID, Thời hạn, Loại hàng, chiết khấu) PRIMARYKEY Code FOREIGNKEY MST From Doanh nghiệp, ID From Khách hàng
+Nhận xét (ID, SKU, Nội dung, Điểm) PRIMARYKEY ID From Khách hàng, SKU From Hàng
