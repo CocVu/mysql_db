@@ -1,0 +1,24 @@
+sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql 
+sudo systemctl enable mariadb.service 
+sudo systemctl start mariadb.service 
+mysql_secure_installation 
+restart 
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'some_pass'; 
+GRANT ALL PRIVILEGES ON mydb.* TO 'username'@'localhost'; 
+FLUSH PRIVILEGES;
+mysql -u coc -p
+mysql -u root -p
+============================================================================
+show databases;
+create database [database];
+use temp; 
+show tables;
+create table xxx(name varchar(20),id int(2),bname varchar(20));
+describe xxx;
+insert into animals (num,name,location) values(1,'abc','xyz')
+select * from xxx;
+drop table xxx;
+drop database xxx;
+LOAD DATA INFILE 'data.csv' INTO TABLE xxx FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ; /*IGNORE 1 ROWS*/
+delete from xxx; 
+# delete all record

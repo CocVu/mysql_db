@@ -1,0 +1,16 @@
+Mua ngay (Mã đơn, ID, Mã giỏ, ngày mua, ngày trả, tình trạng đơn) PRIMARYKEY Mã đơn FOREIGNKEY ID From Khách hàng, Mã giỏ From Giỏ hàng
+Đặt hàng (mã đặt hàng, ID, SKU, Số lượng, Ngày đặt) PRIMARYKEY Mã đặt hàng FOREIGNKEY ID From Khách hàng, SKU From Hàng
+Coupon(Code, MST, ID, Thời hạn, Loại hàng, chiết khấu) PRIMARYKEY Code FOREIGNKEY MST From Doanh nghiệp, ID From Khách hàng
+Nhận xét (ID, SKU, Nội dung, Điểm) PRIMARYKEY ID From Khách hàng, SKU From Hàng
+
+=========================================================================================================
+BBA (The Bachelor of Business Administration)           Cử nhân quản trị kinh doanh.
+BCA (The Bachelor of Commerce and Administration)    Cử nhân thương mại và quản trị.
+B.Acy., B.Acc. hoặc B. Accty. (The Bachelor of Accountancy)    Cử nhân kế toán.
+LLB, LL.B (The Bachelor of Laws)    Cử nhân luật.
+BPAPM (The Bachelor of public affairs and policy management)    Cử nhân ngành quản trị và chính sách công.
+
+
+
+
+
