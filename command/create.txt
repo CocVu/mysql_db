@@ -52,3 +52,10 @@ CREATE TABLE IF NOT EXISTS nhan_xet (ID VARCHAR(5) REFERENCES khach_hang(ID),SKU
 ===============================================================================
 
 ALTER TABLE phong_ban ADD FOREIGN KEY (`Mng_SSN`) REFERENCES nhan_vien(`SSN`);
+ALTER TABLE nhan_vien ADD FOREIGN KEY (`DNum`) REFERENCES phong_ban(`DNum`);
+ALTER TABLE nv_kinh_doanh ADD FOREIGN KEY (`DNum`) REFERENCES phong_ban(`DNum`);
+ALTER TABLE nv_shipper ADD FOREIGN KEY (`DNum`) REFERENCES phong_ban(`DNum`);
+ALTER TABLE nv_cskh ADD FOREIGN KEY (`DNum`) REFERENCES phong_ban(`DNum`);
+ALTER TABLE nv_ql_kho ADD FOREIGN KEY (`DNum`) REFERENCES phong_ban(`DNum`);
+ALTER TABLE doanh_nghiep ADD FOREIGN KEY (`DNum`) REFERENCES phong_ban(`DNum`);
+ALTER TABLE doanh_nghiep ADD FOREIGN KEY (`DNum`) REFERENCES phong_ban(`DNum`);
