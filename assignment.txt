@@ -1,0 +1,53 @@
+Bài 1 
+a)
+
+SELECT nhan_vien.ho_ten
+FROM phong_ban pb JOIN nhan_vien nv ON nv.Dnum = pb.Dnum 
+WHERE nv.ho_ten = 'NÔNG THỊ HẠNH';
+
+Tim ten phong ban nhan vien co ten nong thi hanh
+
+SELECT Ten
+FROM phong_ban pb JOIN nhan_vien nv ON nv.Dnum = pb.Dnum 
+WHERE nv.ho_ten = 'NÔNG THỊ HẠNH';
+
+
+
+Tim ten phong ban co nhan vien tro len muc luong 2000
+
+select pb.Ten 
+from phong_ban pb
+where (select count(luong)
+from nhan_vien nv
+where luong=2000 and pb.Dnum=nv.Dnum);
+
+
+
+Tim ten phong ban co 5 nhan vien tro len muc luong tren 1800
+
+select Ten 
+from phong_ban 
+where (select count(luong)
+from nhan_vien
+where luong>1800 and phong_ban.Dnum=nhan_vien.Dnum) >= 5;
+
+
+
+NOTE: temp la ten database
++--------------------------------------------------------------------|---------------------|------------+
+| Cau 1                                                              |                     | user       |
++--------------------------------------------------------------------|---------------------|------------+
+| DROP USER 'nv_manager'@'localhost';                                | delete user in root | root       |
+| CREATE USER 'nv_manager'@'localhost' IDENTIFIED BY 'nv';           | create user         | root       |
++--------------------------------------------------------------------|---------------------|------------+
+| Cau 2
++--------------------------------------------------------------------|---------------------|------------+
+| GRANT ALL PRIVILEGES ON temp.nhan_vien TO 'nv_manager';            | grant               | root       |
+| REVOKE INSERT ON *.* FROM 'nv_manager'@'localhost';                | revoke              | root       |
+| REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'nv_manager'@'localhost'; |                     | root       |
++--------------------------------------------------------------------|---------------------|------------+
+| Cau 3
++--------------------------------------------------------------------|---------------------|------------+
+| select * from temp.nhan_vien;                                      | show                | nv_manager |
++--------------------------------------------------------------------|---------------------|------------+
+
